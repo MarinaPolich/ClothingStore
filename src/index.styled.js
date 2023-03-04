@@ -12,6 +12,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 15px;
 line-height: 1.4;
+overflow: overlay !important;
 }
 
 code {

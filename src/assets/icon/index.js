@@ -10,6 +10,7 @@ import fast from "./fast.svg";
 import res from "./res.svg";
 import values from "./values.svg";
 import mastercard from "./mastercard.svg";
+import next from "./next.svg";
 
 export {
   logo,
@@ -24,4 +25,5 @@ export {
   fast,
   res,
   values,
+  next,
 };

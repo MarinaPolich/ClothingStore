@@ -3,9 +3,10 @@
     --primary: #6E9C9F;
     --hover-bg: #509498;
     --text-color: #000000;
+    --text-gray: #808080;
     --acsent-color: #998E78;
     --footer-color: #F1EADC;
     --warning: #FF0000;
     --font-raleway: 'Raleway', sans-serif;
-    --transition: 250ms linear;
+    --transition: 500ms linear;
 }

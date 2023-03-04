@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const HeaderBox = styled.header`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   margin-top: 50px;
@@ -22,32 +22,6 @@ export const NavBox = styled.nav`
   width: auto;
 `;
 
-export const StyledLink = styled(NavLink)`
-  width: 100%;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1.4;
-  text-align: center;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  color: var(--text-color);
-  transition: color var(--transition), font-weight var(--transition);
-  cursor: pointer;
-
-  &:not(:last-child) {
-    margin-right: 45px;
-  }
-
-  &:active,
-  &.active,
-  &:hover,
-  &:focus {
-    font-weight: 700;
-    color: var(--primary);
-  }
-`;
-
 export const LinkText = styled.a`
   display: inline-flex;
   flex-direction: row;
@@ -63,9 +37,22 @@ export const LinkText = styled.a`
   color: var(--text-color);
 `;
 
-export const LinkContact = styled(StyledLink)`
+export const LinkContact = styled(NavLink)`
   height: 25px;
+  width: 100%;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color var(--transition);
+  cursor: pointer;
+
   &:not(:last-child) {
     margin-right: 25px;
+  }
+
+  &:active,
+  &.active,
+  &:hover,
+  &:focus {
+    color: var(--primary);
   }
 `;

@@ -4,10 +4,10 @@ import {
   LogoBtn,
   LinkText,
   NavBox,
-  StyledLink,
   LinkContact,
 } from "./Header.styled";
 import { cart, logo, tel, user } from "../../assets/icon";
+import { Navigation } from "../Navigation/Navigation";
 
 export const Header = () => {
   return (
@@ -15,12 +15,7 @@ export const Header = () => {
       <LogoBtn to="/">
         <SVG src={logo} width={140} height={25} title="logo" />
       </LogoBtn>
-      <NavBox>
-        <StyledLink to="/">Главная</StyledLink>
-        <StyledLink to="/shop">Магазин</StyledLink>
-        <StyledLink to="/brand">О бренде</StyledLink>
-        <StyledLink to="/contacts">Контакты</StyledLink>
-      </NavBox>
+      <Navigation />
       <NavBox>
         <LinkText href="tel:+380958235412">
           <SVG src={tel} width={25} height={25} title="tel" />
