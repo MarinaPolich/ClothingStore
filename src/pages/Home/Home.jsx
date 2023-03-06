@@ -1,3 +1,12 @@
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+  limit,
+} from "firebase/firestore";
+import app from "../../firebase-config";
 import { CardShop } from "../../components/CardShop/CardShop";
 import { Hero } from "../../components/Hero/Hero";
 import {
@@ -17,8 +26,24 @@ import {
 import SVG from "react-inlinesvg";
 import { fast, res, values } from "../../assets/icon";
 import { photo_time } from "../../assets/image";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const db = getFirestore(app);
+      const coll = collection(db, "shop");
+      const q = query(coll, where("newCollection", "==", true), limit(3));
+
+      const querySnapshot = await getDocs(q);
+
+      setItems(
+        querySnapshot.docs.map((item) => ({ id: item.id, ...item.data() }))
+      );
+    })();
+  }, []);
   return (
     <>
       <Hero />
@@ -26,9 +51,9 @@ const Home = () => {
       <ContentBox>
         <Title id="new">Новая коллекция</Title>
         <Wraper>
-          <CardShop />
-          <CardShop />
-          <CardShop />
+          {items.map((item) => (
+            <CardShop key={item.id} item={item} />
+          ))}
         </Wraper>
         <LinkBtn to="/shop">Открыть магазин</LinkBtn>
       </ContentBox>

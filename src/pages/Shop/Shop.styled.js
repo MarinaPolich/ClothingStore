@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 
 export const ContentBox = styled.section`
   width: 100%;
@@ -11,7 +10,7 @@ export const Title = styled.h2`
   margin-bottom: 190px;
   text-align: start;
   font-weight: 500;
-  font-size: 40px;
+  font-size: 55px;
   line-height: 1.1;
   letter-spacing: 0.02em;
   color: var(--text-color);

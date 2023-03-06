@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import {
   persistStore,
-  //   persistReducer,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,8 +9,9 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
+import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/auth-slice";
+import { cartReducer } from "./cart/cart-slice";
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -20,18 +21,18 @@ const middleware = [
   }),
 ];
 
-// const cartPersistConfig = {
-//   key: "cart",
-//   storage,
-//     whitelist: [],
-// };
+const cartPersistConfig = {
+  key: "cart",
+  storage,
+};
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    cart: persistReducer(cartPersistConfig, cartReducer),
   },
   middleware,
-  // devTools: process.env.NODE_ENV === 'development',
+  devTools: process.env.NODE_ENV === "development",
 });
 
 export const persistor = persistStore(store);

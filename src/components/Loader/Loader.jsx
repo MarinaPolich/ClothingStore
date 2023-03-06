@@ -10,11 +10,12 @@ export const Loader = () => {
     document.body.style.overflow = "hidden";
     return () => (document.body.style.overflow = "unset");
   }, []);
+
   return createPortal(
     <ContainerLoaderBox>
       <LoaderBox>
         <RotatingLines
-          strokeColor="var(--white)"
+          strokeColor="var(--bg-body)"
           strokeWidth="5"
           animationDuration="0.75"
           width="96"

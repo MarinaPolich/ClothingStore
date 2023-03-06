@@ -37,10 +37,31 @@ export const LinkText = styled.a`
   color: var(--text-color);
 `;
 
-export const LinkContact = styled(NavLink)`
+export const LinkCart = styled(NavLink)`
   height: 25px;
   width: 100%;
   text-decoration: none;
+  color: var(--text-color);
+  transition: color var(--transition);
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  &:active,
+  &.active,
+  &:hover,
+  &:focus {
+    color: var(--primary);
+  }
+`;
+
+export const ProfileBtn = styled.button`
+  height: 25px;
+  width: 100%;
+  border: none;
+  background-color: transparent;
   color: var(--text-color);
   transition: color var(--transition);
   cursor: pointer;

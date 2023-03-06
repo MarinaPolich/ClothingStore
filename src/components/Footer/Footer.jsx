@@ -16,8 +16,8 @@ import {
   Wraper,
   WraperSocial,
   WraperText,
+  Container,
 } from "./Footer.styled";
-import { Container } from "../SharedLayout/SharedLayout.styled";
 import { Navigation } from "../Navigation/Navigation";
 
 export const Footer = () => {

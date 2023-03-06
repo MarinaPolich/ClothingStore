@@ -8,8 +8,6 @@ import {
   getCountFromServer,
   startAfter,
   orderBy,
-  startAt,
-  endBefore,
 } from "firebase/firestore";
 import app from "../../firebase-config";
 
@@ -24,7 +22,7 @@ import {
   FilterItem,
 } from "./Shop.styled";
 import { CardShop } from "../../components/CardShop/CardShop";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import SVG from "react-inlinesvg";
 import { next } from "../../assets/icon";
 
@@ -70,7 +68,7 @@ const Shop = () => {
   const [filter, setFilter] = useState({});
   const [order, setOrder] = useState({ value: 2, name: "price", type: "desc" });
 
-  const getCollection = () => {
+  const getCollection = useCallback(() => {
     const db = getFirestore(app);
     const coll = collection(db, "shop");
     const value = [coll];
@@ -80,7 +78,7 @@ const Shop = () => {
     value.push(orderBy(order.name, order.type));
 
     return value;
-  };
+  }, [filter, order]);
 
   const loadMoreHandle = async () => {
     const coll = getCollection();
@@ -113,7 +111,7 @@ const Shop = () => {
       );
       setLastItem(querySnapshot.docs[querySnapshot.docs.length - 1]);
     })();
-  }, [filter, order]);
+  }, [filter, order, countOnPage, getCollection]);
 
   return (
     <>

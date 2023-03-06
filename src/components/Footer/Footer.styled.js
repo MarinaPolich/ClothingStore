@@ -7,6 +7,12 @@ export const FooterContainer = styled.div`
   background-color: var(--footer-color);
 `;
 
+export const Container = styled.div`
+  width: 1110px;
+
+  margin: 0 auto;
+`;
+
 export const Wraper = styled.footer`
   display: flex;
   flex-direction: row;

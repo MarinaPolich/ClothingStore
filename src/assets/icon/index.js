@@ -11,6 +11,9 @@ import res from "./res.svg";
 import values from "./values.svg";
 import mastercard from "./mastercard.svg";
 import next from "./next.svg";
+import add_shop from "./add_shop.svg";
+import del from "./delete.svg";
+import google from "./google.svg";
 
 export {
   logo,
@@ -26,4 +29,7 @@ export {
   res,
   values,
   next,
+  add_shop,
+  del,
+  google,
 };
