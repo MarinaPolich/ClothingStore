@@ -41,7 +41,7 @@ const Cart = () => {
 
   useEffect(() => {
     (async () => {
-      if (!orderItems) return;
+      if (!orderItems || orderItems.length === 0) return;
       const db = getFirestore(app);
       const coll = collection(db, "shop");
       const q = query(
